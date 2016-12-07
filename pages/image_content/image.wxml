@@ -1,0 +1,29 @@
+<!--pages/image/image.wxml-->
+<view class="container">
+
+  <view class="section-image">
+    <image src="{{image_src}}" mode="aspectFit"></image>
+  </view>
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <picker name="title" mode="selector" bindchange="bindPickerChange" value="{{titles[title_index]}}" range="{{titles}}">
+        <view class="picker">
+        词牌名：{{titles[title_index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="section">
+      <checkbox-group name="tags" bindchange="checkboxChange">
+        <label class="checkbox" wx:for="{{tags}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="section btn-area">
+        <button formType="submit">生成诗歌</button>
+        <button bindtap="bindAddTag">添加标签</button>
+    </view>
+  </form>
+
+</view>

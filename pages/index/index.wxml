@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="index-log">
+      <image src="../resources/logo.jpg" mode="aspectFit"></image>
+    </view>
+    <view class="index-button-list">
+      <button bindtap="bindGeneratePoem">生成诗歌</button>
+      <button bindtap="bindGenerateAd">生成广告语</button>
+    </view>
+</view>
+

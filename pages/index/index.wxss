@@ -1,0 +1,6 @@
+/**index.wxss**/
+.index-button-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

@@ -1,0 +1,6 @@
+/* pages/image/image.wxss */
+.section{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
