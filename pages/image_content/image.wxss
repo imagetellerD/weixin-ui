@@ -1,6 +1,10 @@
 /* pages/image/image.wxss */
 .section{
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
+}
+
+.new-tag-area{
+    flex-direction: row;
 }

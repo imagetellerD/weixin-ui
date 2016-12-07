@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/result/result",
     "pages/image_content/image",
-    "pages/image_result/result",
+    "pages/index/index",
     "pages/tag/tag"
   ],
   "window":{
@@ -12,3 +12,4 @@
     "navigationBarTextStyle":"black"
   }
 }
+

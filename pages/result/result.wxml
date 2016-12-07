@@ -1,0 +1,22 @@
+<!--pages/result/result.wxml-->
+<!--pages/image/image.wxml-->
+<view class="container">
+
+  <view class="section-image">
+    <image src="{{image_src}}" mode="aspectFit"></image>
+  </view>
+  <form bindsubmit="copyText">
+      <view class="section">
+        <textarea max_length="400" auto-focus auto-height value="{{text_content}}" />
+        <button bindtap="copyText" plain="true">复制文案</button>
+      </view>
+  </form>
+
+  <form bindsubmit="formSubmit" bindreset="formReset">    
+    <view class="section btn-area">
+        <button formType="submit" plain="true">重新生成</button> 
+    </view>
+  </form>
+
+</view>
+

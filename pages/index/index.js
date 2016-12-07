@@ -7,7 +7,7 @@ Page({
   //点击函数函数
   bindGeneratePoem: function(){
     var that = this
-    console.log("go to generate poem")
+    console.log("go to select image")
     wx.navigateTo({
       url: '../image_content/image',
       success: function(res){
@@ -23,7 +23,7 @@ Page({
   },
    bindGenerateAd: function(){
     var that = this
-    console.log("go to generate Ad")
+    console.log("go to select image")
     wx.navigateTo({
       url: '../image_content/image',
       success: function(res){
