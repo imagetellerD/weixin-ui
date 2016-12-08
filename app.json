@@ -1,9 +1,8 @@
 {
   "pages":[
-    "pages/result/result",
-    "pages/image_content/image",
     "pages/index/index",
-    "pages/tag/tag"
+    "pages/result/result",
+    "pages/image_content/image"
   ],
   "window":{
     "backgroundTextStyle":"light",

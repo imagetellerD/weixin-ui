@@ -10,19 +10,17 @@ Page({
         title_index: 0,
 
         // 候选标签
-        tags: [
-            {value: '山川'},
-            {value: '峡谷', checked: 'true'},
-            {value: '人物'},
-            {value: '日落'},
-        ],
+        tags: [],
 
         // 是否禁用添加标签按钮
         tag_button_disabled: true
     },
     onLoad:function(options){
         // 页面初始化 options为页面跳转所带来的参数
-        
+        console.log(options.tags)
+        this.setData({
+            "tags": JSON.parse(options.tags)
+        })
     },
     onReady:function(){
         // 页面渲染完成
