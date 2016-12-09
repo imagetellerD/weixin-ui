@@ -18,6 +18,7 @@ Page({
     },
     onLoad:function(options){
         // 页面初始化 options为页面跳转所带来的参数
+        console.log("跳转到了选择tag页面")
         console.log(options.tags)
         console.log(options.image_src)
         this.setData({

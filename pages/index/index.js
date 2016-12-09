@@ -26,11 +26,10 @@ Page({
     
     console.log("Go to generate poem")
     var delimiter1 = "?"
-    var tag_url = "tags=" + JSON.stringify(this.data.user_input_tags)
     var delimiter2 = "&"
     var type_url = "type=ad"
     var image_url = "image_src=" + this.data.image_src
-
+/*
     wx.navigateTo({
       url: '../image_content/image' + 
         delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url,
@@ -46,17 +45,34 @@ Page({
         // complete
       }
     })
-/*
+*/
     wx.uploadFile({
       url: 'https://omg.moxz.cn/imageteller/image-analyst?language=zh',
       filePath: this.data.image_src,
       name: "image",
+      formData: {
+        'image': this.data.image_src
+      },
       success: function(res){
         console.log(res.data)
+        var jsonObj = JSON.parse(res.data)
+        console.log(jsonObj.data.tags.length)
+        console.log(jsonObj.data.tags[0]['text'])
+
+        var image_tags = new Array()
+        for (var i=0; i<jsonObj.data.tags.length; i++)
+        {
+          image_tags.push(jsonObj.data.tags[i]['text'])
+        }
+
+        var tag_url = "tags=" + JSON.stringify(image_tags)
+        var redirect_url = '../image_content/image' + 
+              delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url
+
+        console.log(redirect_url)
         // success
         wx.navigateTo({
-          url: '../image_content/image' + 
-            delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url,
+          url: redirect_url,
 
           success: function(res){
                 
@@ -76,7 +92,7 @@ Page({
         // complete
       }
     })
-*/
+
   },
 
   // 广告生成函数
@@ -115,17 +131,8 @@ Page({
 
               console.log(res)
 
-              // 根据服务端传入设置标签
-              var input_tags = [
-                {value: '山川'},
-                {value: '峡谷'},
-                {value: '人物'},
-                {value: '日落'}
-              ]
-
               this.setData({
                 "image_src": res.tempFilePaths[0],
-                "user_input_tags": input_tags,
                 "generate_button_disabled":false,
                 "search_button_disabled":false
               })
