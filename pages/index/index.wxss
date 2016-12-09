@@ -1,6 +1,19 @@
 /**index.wxss**/
 .index-button-list{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  text-align: center;
+}
+.index-image{
+  border-width: 1px;
+  text-align: center;
+}
+.index-logo{
+  text-align: center;
+}
+.text-label{
+  margin-top: 20px;
+  text-align: center;
+}
+.slide-image{
+  width: 355px;
+  height: 150px;
 }
