@@ -2,6 +2,7 @@
 var app = getApp()
 Page({
     data:{
+        hidden: true,
         // 图片地址
         image_src: '../resources/banner1.jpg',
 
@@ -112,6 +113,10 @@ Page({
 
     // 提交设置
     formSubmit: function(e) {
+        this.setData({
+            hidden: !this.data.hidden
+        });
+
         console.log(this.data.tags.length)
         console.log(this.data.tag_to_confidence.length)
         console.log("==========================")

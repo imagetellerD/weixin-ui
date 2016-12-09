@@ -8,6 +8,9 @@
 </view>
 <form bindsubmit="formSubmit" bindreset="formReset">    
   <view class="section btn-area">
+    <loading hidden="{{hidden}}">
+     重新生成...
+     </loading>
     <button type="primary" formType="submit" plain="false">重新生成</button> 
   </view>
 </form>

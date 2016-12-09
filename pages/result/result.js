@@ -6,6 +6,7 @@ Page({
       poem: '',
       request_tags: '',
       request_title: '',
+      hidden: true,
    },
 
   onLoad:function(options){
@@ -38,6 +39,9 @@ Page({
 
   // 重新生成
   formSubmit:function(e){
+      this.setData({
+            hidden: !this.data.hidden
+      });
       var request_image = this.data.image_src
       var request_title = this.data.request_title
       var request_tags = this.data.request_tags

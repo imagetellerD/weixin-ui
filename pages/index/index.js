@@ -3,6 +3,7 @@
 var app = getApp()
 Page({
   data: {
+    hidden: true,
     imgUrls: [
       "../resources/banner1.jpg",
       "../resources/banner2.jpg"
@@ -28,6 +29,9 @@ Page({
 
   //诗歌生成函数
   bindGeneratePoem: function(){
+    this.setData({
+        hidden: !this.data.hidden
+    });
     
     console.log("Go to generate poem")
     var delimiter1 = "?"

@@ -26,6 +26,9 @@
     </view>
   </form>
   <view class="btn-area">
+      <loading hidden="{{hidden}}">
+      生成诗歌...
+      </loading>
       <button formType="submit">生成诗歌</button> 
   </view>
 </form>
