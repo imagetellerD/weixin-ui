@@ -1,8 +1,6 @@
 <!--index.wxml-->
-<view class="section">
-  <view class="section__title">welcome: {{userInfo.nickName}}</view>
-</view>
 <view class="container">
+  <text class="text-label">Welcome: {{userInfo.nickName}}</text>
     <view class="index-logo">
       <image src="../resources/logo.jpg" mode="aspectFit"></image>
     </view>

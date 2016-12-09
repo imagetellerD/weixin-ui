@@ -8,3 +8,4 @@
 .new-tag-area{
     flex-direction: row;
 }
+
