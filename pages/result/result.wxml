@@ -1,5 +1,4 @@
 <!--pages/result/result.wxml-->
-<!--pages/image/image.wxml-->
 <view class="container">
 
   <view class="section-image">
@@ -20,3 +19,8 @@
 
 </view>
 
+<view class="btn-area">
+  <view class="body-view">
+    <button bindtap="bindReturnHomeTap">回首页</button>
+  </view>
+</view>

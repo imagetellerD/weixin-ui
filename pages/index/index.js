@@ -6,7 +6,7 @@ Page({
     src: "../resources/camera.png",
     user_input_tags: [],
     generate_button_disabled: true,
-    search_button_disabled: true
+    search_button_disabled: true,
   },
   
   onLoad: function () {
@@ -29,7 +29,7 @@ Page({
     var tag_url = "tags=" + JSON.stringify(this.data.user_input_tags)
     var delimiter2 = "&"
     var type_url = "type=ad"
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../image_content/image' + 
         delimiter1 + tag_url + delimiter2 + type_url,
       success: function(res){

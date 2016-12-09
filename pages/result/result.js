@@ -36,5 +36,13 @@ Page({
   // 重新生成
   formSubmit:function(e){
 
-  }
+  },
+
+  // 返回首页
+  bindReturnHomeTap: function() {
+      wx.navigateTo({
+          url: '../index/index'
+      })
+  },
+
 })

@@ -1,6 +1,5 @@
 <!--pages/image/image.wxml-->
 <view class="container">
-
   <view class="section-image">
     <image src="{{image_src}}" mode="aspectFit"></image>
   </view>
