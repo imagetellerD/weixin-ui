@@ -10,10 +10,17 @@ Page({
         title_index: 0,
 
         // 候选标签
-        tags: [],
+        tags: [
+            {value: '山川'},
+            {value: '峡谷'},
+            {value: '人物'},
+            {value: '日落'}
+        ],
 
         // 是否禁用添加标签按钮
-        tag_button_disabled: true
+        tag_button_disabled: true,
+
+        tag_button_opacity: 0.3
         
     },
     onLoad:function(options){
@@ -58,12 +65,14 @@ Page({
     bindTagInput: function(e) {
         if (e.detail.value){
             this.setData({
-                tag_button_disabled: false
+                tag_button_disabled: false,
+                tag_button_opacity: 1.0
             })
         }
         else{
             this.setData({
-                tag_button_disabled: true
+                tag_button_disabled: true,
+                tag_button_opacity: 0.3
             })
         }
     },
@@ -75,7 +84,7 @@ Page({
             "value":e.detail.value.input
         })
         this.setData({
-            tags: this.data.tags
+            tags: this.data.tags,
         })
         console.log(this.data.tags)
     },

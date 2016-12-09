@@ -15,5 +15,5 @@
     <image src="{{image_src}}" mode="aspectFit"></image>
 </view>
 <view class="index-button-list">
-  <button bindtap="bindGeneratePoem" disabled="{{generate_button_disabled}}">生成诗歌</button>
+  <button bindtap="bindGeneratePoem" disabled="{{generate_button_disabled}}" style="opacity: {{button_opacity}}">生成诗歌</button>
 </view>

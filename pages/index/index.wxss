@@ -2,6 +2,10 @@
 .index-button-list{
   text-align: center;
 }
+.index-button-list button{
+  background-color: #09bb07;
+  border-radius: 10px;
+}
 .index-image{
   border-width: 1px;
   text-align: center;

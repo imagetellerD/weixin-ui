@@ -11,6 +11,7 @@ Page({
     user_input_tags: [],
     generate_button_disabled: true,
     search_button_disabled: true,
+    button_opacity: 0.3
   },
   
   onLoad: function () {
@@ -115,7 +116,8 @@ Page({
               this.setData({
                 "image_src": res.tempFilePaths[0],
                 "generate_button_disabled":false,
-                "search_button_disabled":false
+                "search_button_disabled":false,
+                "button_opacity":1.0
               })
 
               // console.log(api.getUrl('/upload'));

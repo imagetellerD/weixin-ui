@@ -1,35 +1,31 @@
 <!--pages/image/image.wxml-->
-<view class="container">
-  <view class="section-image">
-    <image src="{{image_src}}" mode="aspectFit"></image>
-  </view>
+<view class="section section-image">
+  <image src="{{image_src}}" mode="scaleToFill"></image>
+</view>
 
-  <form bindsubmit="formSubmit" bindreset="formReset">
-    <view class="section tital-area">
-      <picker name="title" mode="selector" bindchange="bindPickerChange" value="{{titles[title_index]}}" range="{{titles}}">
-        <view class="picker">
-        词牌名：{{titles[title_index]}}
-        </view>
-      </picker>
-    </view>
-    <view class="section tag-area">
-      <checkbox-group name="tags" bindchange="checkboxChange">
-        <label class="checkbox" wx:for="{{tags}}">
-          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
-        </label>
-      </checkbox-group>
-    </view>
-    
-    <form bindsubmit="bindAddTag">
-      <view class="section new-tag-area">
-        <input name="input" placeholder="请添加新标签" bindinput="bindTagInput"/>
-        <button formType="submit" size="mini" plain="true" disabled="{{tag_button_disabled}}">添加新标签</button>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <picker name="title" mode="selector" bindchange="bindPickerChange" value="{{titles[title_index]}}" range="{{titles}}">
+      <view class="picker">
+      选择词牌名：{{titles[title_index]}}
       </view>
-    </form>
-    
-    <view class="section btn-area">
-        <button formType="submit" plain="true">生成诗歌</button> 
+    </picker>
+  </view>
+  <view class="section tag-area">
+    <checkbox-group name="tags" bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{tags}}">
+        <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </checkbox-group>
+  </view>
+  
+  <form bindsubmit="bindAddTag">
+    <view class="section new-tag-area ">
+      <input name="input" placeholder="请添加新标签" bindinput="bindTagInput"/>
+      <button formType="submit" size="mini" plain="true" disabled="{{tag_button_disabled}}" style=" opacity: {{tag_button_opacity}};">添加新标签</button>
     </view>
   </form>
-
-</view>
+  <view class="btn-area">
+      <button formType="submit">生成诗歌</button> 
+  </view>
+</form>
