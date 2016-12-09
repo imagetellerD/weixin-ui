@@ -11,13 +11,6 @@ Page({
     　　不应有恨，何事长向别时圆？\
     　　人有悲欢离合，月有阴晴圆缺，此事古难全。\
     　　但愿人长久，千里共婵娟。",
-
-    defaultSize: 'default',
-    primarySize: 'default',
-    warnSize: 'default',
-    disabled: false,
-    plain: false,
-    loading: false
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
