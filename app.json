@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/image_content/image",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/image_content/image"
   ],
   "window":{
     "backgroundTextStyle":"light",

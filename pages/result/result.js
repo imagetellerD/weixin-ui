@@ -3,21 +3,17 @@ Page({
   data:{
       // 图片地址
       image_src: '../resources/banner1.jpg',
-      text_content: "明月几时有？把酒问青天。\
-    　　不知天上宫阙，今夕是何年。\
-    　　我欲乘风归去，又恐琼楼玉宇，高处不胜寒。\
-    　　起舞弄清影，何似在人间。\
-    　　转朱阁，低绮户，照无眠。\
-    　　不应有恨，何事长向别时圆？\
-    　　人有悲欢离合，月有阴晴圆缺，此事古难全。\
-    　　但愿人长久，千里共婵娟。",
-  },
+      poem: '',
+   },
+
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
             // 页面初始化 options为页面跳转所带来的参数
         console.log(options.image_src)
+
         this.setData({
-            "image_src": options.image_src
+            "image_src": options.image_src,
+            "poem": options.poem,
         })
   },
   onReady:function(){
@@ -31,11 +27,6 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
-  },
-
-  // 复制文案
-  copyText:function(){
-
   },
 
   // 重新生成

@@ -1,23 +1,18 @@
 <!--pages/result/result.wxml-->
-<view class="container">
-
-  <view class="section-image">
-    <image src="{{image_src}}" mode="aspectFit"></image>
-  </view>
-  <form bindsubmit="copyText">
-      <view class="section">
-        <textarea max_length="400" auto-focus auto-height value="{{text_content}}" />
-        <button type="primary" bindtap="copyText" plain="true">复制文案</button>
-      </view>
-  </form>
-
-  <form bindsubmit="formSubmit" bindreset="formReset">    
-    <view class="section btn-area">
-        <button type="primary" formType="submit" plain="false">重新生成</button> 
-    </view>
-  </form>
+<view class="section section-image">
+  <image src="{{image_src}}" mode="scaleToFill"></image>
 </view>
-
-<button type="primary" bindtap="bindReturnHomeTap">
-  返回首页 
-</button>
+<view class="section text-area">
+  <!--<textarea max_length="400" auto-focus="false" auto-height="false" value="{{poem}}" />-->
+  <text>{{poem}}</text>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">    
+  <view class="section btn-area">
+    <button type="primary" formType="submit" plain="false">重新生成</button> 
+  </view>
+</form>
+<view class="section">
+  <button type="primary" bindtap="bindReturnHomeTap">
+    返回首页 
+  </button>
+</view>

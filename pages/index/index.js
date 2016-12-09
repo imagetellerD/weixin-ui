@@ -59,22 +59,29 @@ Page({
         'image': this.data.image_src
       },
       success: function(res){
+        console.log("success")
         console.log(res.data)
         var jsonObj = JSON.parse(res.data)
 
         var image_tags = new Array()
+		    var tag_to_confidence = new Array()
         for (var i=0; i<jsonObj.data.tags.length; i++)
         {
-          var key = jsonObj.data.tags[i]['text']
+
           image_tags.push({
             'key': jsonObj.data.tags[i]['text'],
             'value': jsonObj.data.tags[i]['text'],
           })
+          tag_to_confidence.push({
+            'key': jsonObj.data.tags[i]['text'],
+            'value': jsonObj.data.tags[i]['confidence'],
+          })
         }
 
         var tag_url = "tags=" + JSON.stringify(image_tags)
+		    var confidence_url = "confidence=" + JSON.stringify(tag_to_confidence)
         var redirect_url = '../image_content/image' + 
-              delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url
+              delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url + delimiter2 + confidence_url
 
         console.log(redirect_url)
         // success
@@ -93,6 +100,7 @@ Page({
         })
       },
       fail: function(err) {
+        console.log("err")
         console.log(err)
       },
       complete: function() {

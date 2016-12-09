@@ -7,3 +7,14 @@
 .other-button-hover {
   background-color: blue;
 }
+.section-image{
+    width: 355px;
+    height: 300px;
+}
+.section{
+    text-align: center;
+    margin: 10px;
+}
+.text-area textarea{
+    margin-left: 20px;
+}

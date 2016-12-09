@@ -1,5 +1,6 @@
 /**index.wxss**/
 .index-button-list{
+  margin-top: 20px;
   text-align: center;
 }
 .index-button-list button{

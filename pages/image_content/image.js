@@ -10,15 +10,12 @@ Page({
         title_index: 0,
 
         // 候选标签
-        tags: [
-            {value: '山川'},
-            {value: '峡谷'},
-            {value: '人物'},
-            {value: '日落'}
-        ],
+        tags: [],
 
         // 是否禁用添加标签按钮
         tag_button_disabled: true,
+
+        tag_to_confidence: [],
 
         tag_button_opacity: 0.3
         
@@ -28,9 +25,11 @@ Page({
         console.log("跳转到了选择tag页面")
         console.log(options.tags)
         console.log(options.image_src)
+		console.log(options.confidence)
         this.setData({
             "tags": JSON.parse(options.tags),
-            "image_src": options.image_src
+            "image_src": options.image_src,
+            "tag_to_confidence": JSON.parse(options.confidence),
         })
     },
     onReady:function(){
@@ -91,12 +90,39 @@ Page({
 
     // 提交设置
     formSubmit: function(e) {
-        console.log('form发生了submit事件，携带数据为：', e.detail.value)
-        var delimiter1 = "?"
-        var image_url = "image_src=" + this.data.image_src
-        var delimiter2 = "&"
+        console.log(this.data.tags.length)
+        console.log(this.data.tag_to_confidence.length)
+        console.log("==========================")
+
+        var request_data = new Array()
+        for (var i=0; i<this.data.tags.length; i++)
+        {
+            console.log(this.data.tags[i]['value'])
+
+            var confidence = 100
+
+            for (var j=0; j<this.data.tag_to_confidence.length; j++)
+            {
+                if (this.data.tag_to_confidence[j]['key'] == this.data.tags[i]['value'])
+                {
+                    confidence = this.data.tag_to_confidence[j]['value']
+                    break
+                }
+            }
+
+            request_data.push({
+                'text': this.data.tags[i]['value'],
+                'confidence': confidence,
+            })
 
 
+
+
+
+        }
+
+        console.log(JSON.stringify(request_data))
+/*
         wx.navigateTo({
           url: '../result/result' + 
             delimiter1 + image_url,
@@ -110,22 +136,43 @@ Page({
             // complete
           }
         })
-/*
-        wx.uploadFile({
-          url: 'https://omg.moxz.cn/js/analyze_image/poem.js',
+*/
+
+        console.log('form发生了submit事件，携带数据为：', e.detail.value)
+        var delimiter1 = "?"
+        var image_url = "image_src=" + this.data.image_src
+        var delimiter2 = "&"
+
+        wx.request({
+
+
+          url: 'https://omg.moxz.cn/imageteller/get-poem',
           filePath: this.data.image_src,
-          name: "",
+          data: {
+            tags: JSON.stringify(request_data),
+            descriptions: [],
+            poemTitle: this.data.titles[this.data.title_index],
+          },
+
           success: function(res){
+            console.log(typeof(res.data))
+            console.log(res.data.length)
             console.log(res.data)
+      //      var jsonObj = JSON.parse(res.data)
+            console.log(res.data['data']['poem'])
+
+            var poem_url = "poem=" + res.data['data']['poem']
             // success
             wx.navigateTo({
-              url: '../result/result' + delimiter1 + image_url,
+              url: '../result/result' + delimiter1 + image_url + delimiter2 + poem_url,
 
               success: function(res){
-                
+                console.log(res)
+
               },
               fail: function(err) {
-                
+                console.log(err)
+
               },
               complete: function() {
                 // complete
@@ -139,6 +186,5 @@ Page({
             // complete
           }
         })
-*/
     },
 })
