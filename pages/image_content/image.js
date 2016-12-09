@@ -143,15 +143,15 @@ Page({
         var image_url = "image_src=" + this.data.image_src
         var delimiter2 = "&"
 
+        var request_tags = JSON.stringify(request_data)
+        var request_title = this.data.titles[this.data.title_index]
         wx.request({
-
-
           url: 'https://omg.moxz.cn/imageteller/get-poem',
           filePath: this.data.image_src,
           data: {
-            tags: JSON.stringify(request_data),
+            tags: request_tags,
             descriptions: [],
-            poemTitle: this.data.titles[this.data.title_index],
+            poemTitle: request_title,
           },
 
           success: function(res){
@@ -162,9 +162,12 @@ Page({
             console.log(res.data['data']['poem'])
 
             var poem_url = "poem=" + res.data['data']['poem']
+            var tags_url = "tags=" + request_tags
+            var title_url = "title=" + request_title
             // success
             wx.navigateTo({
-              url: '../result/result' + delimiter1 + image_url + delimiter2 + poem_url,
+              url: '../result/result' + delimiter1 + image_url + delimiter2 + poem_url
+                        + delimiter2 + tags_url + delimiter2 + title_url,
 
               success: function(res){
                 console.log(res)
