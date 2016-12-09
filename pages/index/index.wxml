@@ -1,15 +1,19 @@
 <!--index.wxml-->
-<view class="container">
-  <text class="text-label">Welcome: {{userInfo.nickName}}</text>
-    <view class="index-logo">
-      <image src="../resources/banner2.jpg" mode="aspectFit"></image>
-    </view>
-    <view class="index-image" bindtap="chooseImage">
-        <image src="{{image_src}}" mode="aspectFit"></image>
-    </view>
-    <view class="index-button-list">
-      <button bindtap="bindGeneratePoem" disabled="{{generate_button_disabled}}">生成诗歌</button>
-      <button bindtap="bindSearchAd" disabled="{{search_button_disabled}}">生成广告语</button>
-    </view>
+<view class="index-logo">
+  <swiper indicator-dots="true" autoplay="false" interval="5000" duration="1000">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" mode="aspectFit" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
-
+<view class="text-label">
+  <text>Welcome: {{userInfo.nickName}}</text>
+</view>
+<view class="index-image" bindtap="chooseImage">
+    <image src="{{image_src}}" mode="aspectFit"></image>
+</view>
+<view class="index-button-list">
+  <button bindtap="bindGeneratePoem" disabled="{{generate_button_disabled}}">生成诗歌</button>
+</view>
