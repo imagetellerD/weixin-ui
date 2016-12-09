@@ -14,7 +14,7 @@
     </view>
     <view class="section tag-area">
       <checkbox-group name="tags" bindchange="checkboxChange">
-        <label class="checkbox" wx:key="{{tags}}">
+        <label class="checkbox" wx:for="{{tags}}">
           <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
         </label>
       </checkbox-group>
