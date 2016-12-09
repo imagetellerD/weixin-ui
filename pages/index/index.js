@@ -3,7 +3,7 @@
 var app = getApp()
 Page({
   data: {
-    src: "../resources/camera.png",
+    image_src: "../resources/camera.png",
     user_input_tags: [],
     generate_button_disabled: true,
     search_button_disabled: true,
@@ -29,9 +29,10 @@ Page({
     var tag_url = "tags=" + JSON.stringify(this.data.user_input_tags)
     var delimiter2 = "&"
     var type_url = "type=ad"
+    var image_url = "image_src=" + this.data.image_src
     wx.navigateTo({
       url: '../image_content/image' + 
-        delimiter1 + tag_url + delimiter2 + type_url,
+        delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url,
       success: function(res){
         // success
         console.log("redirect to generate page success")
@@ -91,7 +92,7 @@ Page({
               ]
 
               this.setData({
-                "src": res.tempFilePaths[0],
+                "image_src": res.tempFilePaths[0],
                 "user_input_tags": input_tags,
                 "generate_button_disabled":false,
                 "search_button_disabled":false

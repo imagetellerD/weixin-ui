@@ -2,7 +2,7 @@
 Page({
   data:{
       // 图片地址
-      image_src: '../resources/image.jpg',
+      image_src: '../resources/banner1.jpg',
       text_content: "明月几时有？把酒问青天。\
     　　不知天上宫阙，今夕是何年。\
     　　我欲乘风归去，又恐琼楼玉宇，高处不胜寒。\
@@ -14,6 +14,11 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+            // 页面初始化 options为页面跳转所带来的参数
+        console.log(options.image_src)
+        this.setData({
+            "image_src": options.image_src
+        })
   },
   onReady:function(){
     // 页面渲染完成

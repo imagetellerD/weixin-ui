@@ -3,7 +3,7 @@ var app = getApp()
 Page({
     data:{
         // 图片地址
-        image_src: '../resources/image.jpg',
+        image_src: '../resources/banner1.jpg',
 
         // 候选词牌名
         titles: ['浣溪沙', '水调歌头', '采桑子', '水龙吟'],
@@ -19,8 +19,10 @@ Page({
     onLoad:function(options){
         // 页面初始化 options为页面跳转所带来的参数
         console.log(options.tags)
+        console.log(options.image_src)
         this.setData({
-            "tags": JSON.parse(options.tags)
+            "tags": JSON.parse(options.tags),
+            "image_src": options.image_src
         })
     },
     onReady:function(){
@@ -80,9 +82,13 @@ Page({
     // 提交设置
     formSubmit: function(e) {
         console.log('form发生了submit事件，携带数据为：', e.detail.value)
+        var delimiter1 = "?"
+        var image_url = "image_src=" + this.data.src
+
 
         wx.navigateTo({
-          url: '../result/result',
+          url: '../result/result' + 
+            delimiter1 + image_url,
           success: function(res){
             // success
           },
@@ -101,7 +107,8 @@ Page({
         //   success: function(res){
         //     // success
         //     wx.navigateTo({
-        //       url: '../result/result',
+        //       url: '../result/result' +
+        //         delimiter1 + image_url,
         //       success: function(res){
         //         // success
         //       },
