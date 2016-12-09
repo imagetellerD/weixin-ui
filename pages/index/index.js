@@ -60,13 +60,15 @@ Page({
       success: function(res){
         console.log(res.data)
         var jsonObj = JSON.parse(res.data)
-        console.log(jsonObj.data.tags.length)
-        console.log(jsonObj.data.tags[0]['text'])
 
         var image_tags = new Array()
         for (var i=0; i<jsonObj.data.tags.length; i++)
         {
-          image_tags.push(jsonObj.data.tags[i]['text'])
+          var key = jsonObj.data.tags[i]['text']
+          image_tags.push({
+            'key': jsonObj.data.tags[i]['text'],
+            'value': jsonObj.data.tags[i]['text'],
+          })
         }
 
         var tag_url = "tags=" + JSON.stringify(image_tags)
