@@ -30,6 +30,7 @@ Page({
     var delimiter2 = "&"
     var type_url = "type=ad"
     var image_url = "image_src=" + this.data.image_src
+
     wx.navigateTo({
       url: '../image_content/image' + 
         delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url,
@@ -45,6 +46,37 @@ Page({
         // complete
       }
     })
+/*
+    wx.uploadFile({
+      url: 'https://omg.moxz.cn/imageteller/image-analyst?language=zh',
+      filePath: this.data.image_src,
+      name: "image",
+      success: function(res){
+        console.log(res.data)
+        // success
+        wx.navigateTo({
+          url: '../image_content/image' + 
+            delimiter1 + tag_url + delimiter2 + type_url + delimiter2 + image_url,
+
+          success: function(res){
+                
+          },
+          fail: function(err) {
+                
+          },
+          complete: function() {
+            // complete
+          }
+        })
+      },
+      fail: function(err) {
+        console.log(err)
+      },
+      complete: function() {
+        // complete
+      }
+    })
+*/
   },
 
   // 广告生成函数

@@ -83,7 +83,8 @@ Page({
     formSubmit: function(e) {
         console.log('form发生了submit事件，携带数据为：', e.detail.value)
         var delimiter1 = "?"
-        var image_url = "image_src=" + this.data.src
+        var image_url = "image_src=" + this.data.image_src
+        var delimiter2 = "&"
 
 
         wx.navigateTo({
@@ -99,33 +100,35 @@ Page({
             // complete
           }
         })
-        // wx.request({
-        //   url: 'https://URL',
-        //   data: {},
-        //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        //   // header: {}, // 设置请求的 header
-        //   success: function(res){
-        //     // success
-        //     wx.navigateTo({
-        //       url: '../result/result' +
-        //         delimiter1 + image_url,
-        //       success: function(res){
-        //         // success
-        //       },
-        //       fail: function() {
-        //         // fail
-        //       },
-        //       complete: function() {
-        //         // complete
-        //       }
-        //     })
-        //   },
-        //   fail: function() {
-        //     // fail
-        //   },
-        //   complete: function() {
-        //     // complete
-        //   }
-        // })
+/*
+        wx.uploadFile({
+          url: 'https://omg.moxz.cn/js/analyze_image/poem.js',
+          filePath: this.data.image_src,
+          name: "",
+          success: function(res){
+            console.log(res.data)
+            // success
+            wx.navigateTo({
+              url: '../result/result' + delimiter1 + image_url,
+
+              success: function(res){
+                
+              },
+              fail: function(err) {
+                
+              },
+              complete: function() {
+                // complete
+              }
+            })
+          },
+          fail: function(err) {
+            console.log(err)
+          },
+          complete: function() {
+            // complete
+          }
+        })
+*/
     },
 })
