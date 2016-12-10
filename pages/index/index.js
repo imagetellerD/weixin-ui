@@ -27,6 +27,27 @@ Page({
     })
   },
 
+  onReady:function(){
+        // 页面渲染完成
+        var tags = this.data.tags
+        console.log(tags)
+    },
+    onShow:function(){
+        // 页面显示
+    },
+    onHide:function(){
+        // 页面隐藏
+        this.setData({
+            "hidden": true,
+        })
+    },
+    onUnload:function(){
+        // 页面关闭
+        this.setData({
+            "hidden": true,
+        })
+    },
+
   //诗歌生成函数
   bindGeneratePoem: function(){
     this.setData({

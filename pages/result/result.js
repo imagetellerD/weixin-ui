@@ -32,9 +32,15 @@ Page({
   },
   onHide:function(){
     // 页面隐藏
+    this.setData({
+            "hidden": true,
+        })
   },
   onUnload:function(){
     // 页面关闭
+    this.setData({
+            "hidden": true,
+        })
   },
 
   // 重新生成

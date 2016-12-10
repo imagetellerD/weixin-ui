@@ -46,7 +46,6 @@ Page({
     onLoad:function(options){
         // 页面初始化 options为页面跳转所带来的参数
         console.log("跳转到了选择tag页面")
-        console.log(options.tags)
         console.log(options.image_src)
 		console.log(options.confidence)
         this.setData({
@@ -65,9 +64,15 @@ Page({
     },
     onHide:function(){
         // 页面隐藏
+        this.setData({
+            "hidden": true,
+        })
     },
     onUnload:function(){
         // 页面关闭
+        this.setData({
+            "hidden": true,
+        })
     },
 
     // 词牌选择
@@ -108,6 +113,7 @@ Page({
         this.setData({
             tags: this.data.tags,
         })
+        console.log('添加了一个标签啦~~~：')
         console.log(this.data.tags)
     },
 
