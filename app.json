@@ -7,7 +7,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "ImageTeller",
+    "navigationBarTitleText": "画译",
     "navigationBarTextStyle":"black"
   }
 }
